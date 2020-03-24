@@ -66,11 +66,11 @@ with `YOUR_CLUSTER_IP:5000/wild-west-kubernetes:latest`.
 
 Create the resources for this demo with the following command:
 
-** If resources are local (REPLACE WITH LOCAL PATH):**
+**If resources are local (REPLACE WITH LOCAL PATH):**
  
  `kubectl apply -k /path/to/local/repo/ -n default` 
 
- ** If resources are remote (REPLACE WITH REMOTE PATH):**
+**If resources are remote (REPLACE WITH REMOTE PATH):**
 
  `kubectl apply -k https://github.com/yourrepo -n default` 
 
