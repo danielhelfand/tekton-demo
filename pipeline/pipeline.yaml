@@ -1,0 +1,40 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: wild-west-k8s-pipeline
+spec:
+  resources:
+    - name: source-repo
+      type: git
+    - name: image-reg
+      type: image
+  tasks:
+    - name: build-wild-west-k8s
+      taskRef:
+        name: build-docker-image-from-git-source
+      params:
+        - name: pathToDockerFile
+          value: Dockerfile
+      resources:
+        inputs:
+          - name: docker-source
+            resource: source-repo
+        outputs:
+          - name: builtImage
+            resource: image-reg
+    - name: deploy-wild-west-k8s
+      taskRef:
+        name: deploy-using-kubectl
+      resources:
+        inputs:
+          - name: source
+            resource: source-repo
+          - name: image
+            resource: image-reg
+            from:
+              - build-wild-west-k8s
+      params:
+        - name: path
+          value: /workspace/source/kubernetes/k8s.yaml #configure: may change according to your source
+        - name: yamlPathToImage
+          value: "spec.template.spec.containers[0].image"

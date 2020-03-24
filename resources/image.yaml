@@ -1,0 +1,9 @@
+apiVersion: tekton.dev/v1alpha1
+kind: PipelineResource
+metadata:
+  name: wild-west-k8s-image
+spec:
+  type: image
+  params:
+    - name: url
+      value: danielhelfand/wild-west-kubernetes:latest #configure: change to personal image registry or local image registry

@@ -1,0 +1,12 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- pipeline/pipeline.yaml
+- tasks/kaniko.yaml
+- tasks/kubectl.yaml
+- resources/git.yaml
+- resources/image.yaml
+- serviceaccount/serviceaccount.yaml
+- serviceaccount/rolebinding.yaml
+- registry/registry.yaml
