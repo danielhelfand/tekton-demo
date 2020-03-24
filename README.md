@@ -15,7 +15,7 @@ Using Tekton CRDs, developers can create CI/CD resources that are managed and or
 ## Prerequsites for this Tutorial
 
 * A Kubernetes cluster version 1.15.0 or higher (Can be run locally using [Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/))
-* The `kubectl`(https://kubernetes.io/docs/tasks/tools/install-kubectl/) CLI for Kubernetes
+* The [`kubectl`](https://kubernetes.io/docs/tasks/tools/install-kubectl/) CLI for Kubernetes
 * The [`tkn`](https://github.com/tektoncd/cli#installing-tkn) CLI for Tekton
 * Create resources in the `default` namespace on Kubernetes
 
